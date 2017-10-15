@@ -1,5 +1,7 @@
 <?php
 
+use Dompdf\Dompdf;
+
 /**  Require DomPDF library */
 $pdfRendererClassFile = PHPExcel_Settings::getPdfRendererPath() . '/dompdf_config.inc.php';
 if (file_exists($pdfRendererClassFile)) {
@@ -90,7 +92,7 @@ class PHPExcel_Writer_PDF_DomPDF extends PHPExcel_Writer_PDF_Core implements PHP
 
 
         //  Create PDF
-        $pdf = new DOMPDF();
+        $pdf = new Dompdf();
         $pdf->set_paper(strtolower($paperSize), $orientation);
 
         $pdf->load_html(
